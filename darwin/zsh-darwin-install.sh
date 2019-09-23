@@ -34,7 +34,8 @@ fi
 
 #install command line tools
 echo -e "${GREEN}--------------CommandLineTools---------------"
-if [ ! -d $(xcode-select -p) ]; then
+xcode-select -p
+if [ $? ne 0 ]; then
     echo "${GREEN}Installing Command Line Tools."
     xcode-select --install
 else
