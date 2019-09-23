@@ -129,7 +129,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 	 ' > $FILE
 
 read -r -p "${RED}SET ZSH AS DEFAULT? [y/N]${RESET}" confirmation
-if [ "$confirmation" == y ] && [ "$confirmation" == Y ]; then
+if [ "$confirmation" == y ] || [ "$confirmation" == Y ]; then
 	#set zsh as default shell
 	sudo chsh -s $(which zsh) $USER
   	echo "${GREEN}ZSH is now the default shell."

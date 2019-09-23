@@ -35,13 +35,14 @@ fi
 #install command line tools
 echo -e "${GREEN}--------------CommandLineTools---------------"
 xcode-select -p
-if [ $? ne 0 ]; then
+if [ "$?" -ne "0" ]; then
     echo "${GREEN}Installing Command Line Tools."
     xcode-select --install
 else
     echo "${RED}CLT already installed."
 fi
 echo -e "${RED}--------------CommandLineTools---------------\n"
+
 
 echo -e "${GREEN}--------------HomeBrew---------------"
 #install homebrew
@@ -109,7 +110,7 @@ alias ls="ls -G"
 	 ' > $FILE
 
 read -r -p "${RED}SET ZSH AS DEFAULT? [y/N]${RESET}" confirmation
-if [ "$confirmation" == y ] && [ "$confirmation" == Y ]; then
+if [ "$confirmation" == y ] || [ "$confirmation" == Y ]; then
 	#set zsh as default shell
 	sudo chsh -s $(which zsh) $USER
   	echo "${GREEN}ZSH is now the default shell."
